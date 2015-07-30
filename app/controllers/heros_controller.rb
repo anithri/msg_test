@@ -60,6 +60,6 @@ class HerosController < ApplicationController
     end
 
     def hero_params
-      params.require(:hero).permit(:code_name, :real_name)
+      params.require(:hero).permit(:code_name, :real_name, :base_name, :secret_base)
     end
 end

@@ -1,7 +1,7 @@
 class CreateHero < ActiveInteraction::Base
   string :code_name
   string :real_name
-  string :base_of_operations, default: nil
+  string :base_name, default: nil
 
   boolean :secret_base, default: true
 
@@ -25,11 +25,10 @@ class CreateHero < ActiveInteraction::Base
 
   def publish_create_hero(hero)
     hero_data = {
-        hero_id:            hero.id,
-        secret_base:        secret_base,
-        base_of_operations: base_of_operations
+        hero_id:     hero.id,
+        secret_base: secret_base,
+        base_name:   base_name
     }
-    warn "publishing #{hero_data.inspect}"
     FourWindsPublisher.publish('create_hero', hero_data)
   end
 
