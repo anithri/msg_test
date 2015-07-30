@@ -25,9 +25,8 @@ class HerosController < ApplicationController
   end
 
   def create
-    @hero = Hero.new(hero_params)
-    authorize @hero
-    @hero.save
+    authorize Hero.new
+    @hero = CreateHero.run(hero_params)
     respond_with(@hero)
   end
 
@@ -61,6 +60,6 @@ class HerosController < ApplicationController
     end
 
     def hero_params
-      params.require(:hero).permit(:code_name, :real_name, :sidekick_count)
+      params.require(:hero).permit(:code_name, :real_name)
     end
 end

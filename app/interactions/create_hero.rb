@@ -18,22 +18,19 @@ class CreateHero < ActiveInteraction::Base
       errors.merge!(hero.errors)
     end
 
-    create_base_for_hero(hero)
+    publish_create_hero(hero)
 
     hero
   end
 
-  def send_message(msg_queue, msg)
-
-  end
-
-  def create_base_for_hero(hero)
+  def publish_create_hero(hero)
     hero_data = {
         hero_id:            hero.id,
         secret_base:        secret_base,
         base_of_operations: base_of_operations
     }
-    send_message('CreateHeroBaseForHero', hero_data)
+    warn "publishing #{hero_data.inspect}"
+    FourWindsPublisher.publish('create_hero', hero_data)
   end
 
   def self.policy_class

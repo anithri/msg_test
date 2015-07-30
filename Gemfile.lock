@@ -38,6 +38,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    amq-protocol (1.9.2)
     arel (6.0.2)
     autoprefixer-rails (5.2.1.1)
       execjs
@@ -48,6 +49,8 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
+    bunny (2.0.0)
+      amq-protocol (>= 1.9.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
     coderay (1.1.0)
@@ -223,6 +226,7 @@ PLATFORMS
 DEPENDENCIES
   active_interaction
   bootstrap-sass
+  bunny
   byebug
   coffee-rails (~> 4.1.0)
   guard-bundler
