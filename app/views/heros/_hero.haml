@@ -1,0 +1,13 @@
+.row
+  .col-sm-3
+    = hero.code_name
+  .col-sm-3
+    = hero.real_name
+  .col-sm-3
+    = hero.sidekick_count
+  .col-sm-3
+    = link_to 'Show', hero, remote: true
+    - if policy(hero).update?
+      = link_to 'Edit', edit_hero_path(hero)
+    - if policy(hero).destroy?
+      = link_to 'Destroy', hero, remote: true, method:  :delete, data: { :confirm => 'Are you sure?' }

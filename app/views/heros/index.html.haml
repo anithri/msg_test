@@ -1,25 +1,2 @@
-%h1 Listing heros
-
-%table
-  %thead
-    %tr
-      %th Code name
-      %th Real name
-      %th Sidekick count
-      %th
-      %th
-      %th
-
-  %tbody
-    - @heros.each do |hero|
-      %tr
-        %td= hero.code_name
-        %td= hero.real_name
-        %td= hero.sidekick_count
-        %td= link_to 'Show', hero
-        %td= link_to 'Edit', edit_hero_path(hero)
-        %td= link_to 'Destroy', hero, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Hero', new_hero_path
+#heros-slot.container-fluid{data: {index_url: heros_path}}
+  = render 'heros/grid'

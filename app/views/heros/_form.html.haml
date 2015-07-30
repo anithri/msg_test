@@ -1,10 +1,13 @@
-= simple_form_for(@hero) do |f|
-  = f.error_notification
-
+= simple_form_for @hero, wrapper: :horizontal_form, html: {class: 'form-horizontal form'}  do |f|
   .form-inputs
     = f.input :code_name
     = f.input :real_name
-    = f.input :sidekick_count
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-success'
+
+.row
+  = link_to 'Show', @hero, class: 'btn btn-default', remote: true
+  \|
+  = link_to 'Back', heros_path, class: 'btn btn-default', remote: true
+

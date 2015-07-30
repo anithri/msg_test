@@ -36,6 +36,8 @@ class CreateHero < ActiveInteraction::Base
     send_message('CreateHeroBaseForHero', hero_data)
   end
 
+  def self.policy_class
+    HeroPolicy
+  end
 
 end
-

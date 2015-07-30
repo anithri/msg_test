@@ -1,0 +1,12 @@
+.row
+  .col-sm-3
+    %strong Superheros
+  .col-sm-3
+    %strong Real Name
+  .col-sm-3
+    %strong # of Sidekicks
+  .col-sm-3
+    Operations
+=render @heros
+.row.pull-right
+  = link_to 'New Hero', new_hero_path
