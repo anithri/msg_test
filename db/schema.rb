@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729223635) do
+ActiveRecord::Schema.define(version: 20150730050244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "base_of_operations", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "secret_base"
+    t.integer  "hero_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "base_of_operations", ["hero_id"], name: "index_base_of_operations_on_hero_id", using: :btree
 
   create_table "heros", force: :cascade do |t|
     t.string   "code_name",                  null: false
@@ -24,4 +34,5 @@ ActiveRecord::Schema.define(version: 20150729223635) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_foreign_key "base_of_operations", "heros"
 end

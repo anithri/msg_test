@@ -1,9 +1,11 @@
 .row
-  .col-sm-3
+  .col-sm-2
     = hero.code_name
-  .col-sm-3
+  .col-sm-2
     = hero.real_name
-  .col-sm-3
+  .col-sm-2
+    = hero.base_of_operation ? hero.base_of_operation.name : '<Unknown>'
+  .col-sm-2
     = hero.sidekick_count
   .col-sm-3
     = link_to 'Show', hero, remote: true
