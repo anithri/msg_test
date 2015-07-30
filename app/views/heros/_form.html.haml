@@ -1,0 +1,10 @@
+= simple_form_for(@hero) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :code_name
+    = f.input :real_name
+    = f.input :sidekick_count
+
+  .form-actions
+    = f.button :submit

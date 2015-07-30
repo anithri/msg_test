@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Code name:
+  = @hero.code_name
+%p
+  %b Real name:
+  = @hero.real_name
+%p
+  %b Sidekick count:
+  = @hero.sidekick_count
+
+= link_to 'Edit', edit_hero_path(@hero)
+\|
+= link_to 'Back', heros_path
